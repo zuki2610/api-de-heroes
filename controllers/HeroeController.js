@@ -11,7 +11,8 @@ exports.getAllHeroes = async (req, res) => {
  
 exports.createHeroe = async (req, res) => {
   try {
-    const heroe = await heoreService.createHeroe(req.body);
+    console.log(req.body);
+    const heroe = await heroeService.createHeroe(req.body);
     res.json({ data: heroe, status: "success" });
   } catch (err) {
     res.status(500).json({ error: err.message });

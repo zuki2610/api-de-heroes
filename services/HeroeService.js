@@ -12,7 +12,8 @@ exports.getHeroeById = async (id) => {
 };
 
 exports.updateHeroe = async (id, heroe) => {
-  return await HeroeModel.findByIdAndUpdate(id, heroe);
+  return await HeroeModel.findByIdAndUpdate(id, heroe, { new: true });
+
 };
 
 exports.deleteHeroe = async (id) => {

@@ -1,11 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const heroeRouter = require("./routes/HeroeRoutes");
 require('dotenv').config();
 
 const app = express();
  
 //middleware
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use("/api/heroes", heroeRouter);
 mongoose.connect(
     process.env.MONGODB_URI || "mongodb://localhost/CRUD",
     {
